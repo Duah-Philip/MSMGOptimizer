@@ -1,0 +1,127 @@
+---
+output: github_document
+---
+
+# MSMGOptimizer <img src="inst/shiny/www/Final_MSMG_hex.png" align="right" width="140"/>
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/Duah-Philip/MSMGOptimizer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Duah-Philip/MSMGOptimizer/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/MSMGOptimizer)](https://CRAN.R-project.org/package=MSMGOptimizer)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+<!-- badges: end -->
+
+## Overview
+
+**MSMGOptimizer** is an R package that transforms raw Life Cycle 
+Inventory (LCI) data from Excel into a fully compatible CSV format 
+for seamless import into [SimaPro](https://simapro.com/) — one of 
+the world's leading Life Cycle Assessment (LCA) software platforms.
+
+Developed as part of the NSF-funded project:
+> *ECO-CBET: GOALI: CAS-Climate: Expediting Decarbonization of the 
+> Cement Industry through Integration of CO₂ Capture and Conversion*
+> (NSF Project No. 2219086)
+
+---
+
+## Installation
+
+### Option 1 — Install from CRAN (recommended)
+```r
+install.packages("MSMGOptimizer")
+```
+
+### Option 2 — Install from GitHub (development version)
+```r
+# install.packages("remotes")
+remotes::install_github("Duah-Philip/MSMGOptimizer")
+```
+
+### Option 3 — Run directly without installing
+```r
+shiny::runGitHub(
+  repo   = "MSMGOptimizer",
+  username = "Duah-Philip",
+  ref    = "master",
+  subdir = "inst/shiny"
+)
+```
+
+---
+
+## Usage
+```r
+library(MSMGOptimizer)
+
+# Launch the Shiny application
+ShinyMSMGOptimizer()
+```
+
+---
+
+## Features
+
+- 📂 Upload `.xlsx` or `.xls` Excel LCI files
+- ⚙️ Automatically converts all worksheets to SimaPro CSV format
+- 📦 Downloads all converted files as a single ZIP archive
+- 👁️ Live sheet preview before conversion
+- 🔄 Supports all SimaPro exchange types:
+  - Materials/Fuels, Resources, Emissions to Air/Water/Soil
+  - Final Waste Flows, Social Issues, Economic Issues
+  - Waste to Treatment
+
+---
+
+## Excel File Format
+
+Your Excel file must follow this structure:
+
+| Row | Column A | Column B | Column C | Column D | Column E+ |
+|-----|----------|----------|----------|----------|-----------|
+| 1   |          |          |          |          | Process Name |
+| 2   |          |          |          |          | Unit |
+| 3   |          |          |          |          | Amount |
+| 4   |          |          |          |          | |
+| 5   |          |          |          |          | Comment |
+| 6   |          |          |          |          | Category |
+| 7+  | Type     | Name     |          | Unit     | Value |
+
+**Exchange type codes** for Column A:
+
+| Code | Exchange Type |
+|------|--------------|
+| *(blank)* | Materials/Fuels |
+| `Raw` | Resources |
+| `Air` | Emissions to Air |
+| `Water` | Emissions to Water |
+| `Soil` | Emissions to Soil |
+| `Waste` | Final Waste Flows |
+| `Social` | Social Issues |
+| `Economic` | Economic Issues |
+| `Wastetotreatment` | Waste to Treatment |
+
+---
+
+## Acknowledgments
+
+Inspired by the original Python-based SimaPro CSV converter developed 
+by [Professor Massimo Pizzol](https://github.com/massimopizzol/Simapro-CSV-converter).
+
+---
+
+## Citation
+
+If you use MSMGOptimizer in your research, please cite:
+```
+Duah, P. (2024). MSMGOptimizer: MSMG SimaPro CSV Optimizer. 
+R package version 0.1.0. 
+https://github.com/Duah-Philip/MSMGOptimizer
+```
+
+---
+
+## Contact
+
+**Philip Duah**  
+Missouri University of Science & Technology  
+📧 dpbxc@mst.edu

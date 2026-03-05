@@ -1,12 +1,12 @@
-## R CMD check results
-
 ## Test environments
-* Windows 11, R 4.3.1
+* Local: Windows 11, R 4.3.1
+* Win-builder: R-devel (win-builder.r-project.org)
 
 ## R CMD check results
 0 errors | 0 warnings | 1 note
 
 ## Notes
-* Unable to verify current time — network issue on test machine, not package-related.
+* "unable to verify current time" — this is a network connectivity 
+  issue on the test machine and is unrelated to the package.
 
-* This is a new release.
+## This is a new submission.
