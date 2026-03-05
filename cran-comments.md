@@ -10,5 +10,10 @@
   intentional technical terms: MSMG (project acronym), SimaPro 
   (LCA software name), LCI (Life Cycle Inventory), CAS/CBET/GOALI 
   (NSF program designations), and Decarbonization (valid English word).
+  
+  ## Resubmission
+* Added Resources tab with downloadable tutorial and setup files
+* Added example files to inst/shiny/www/ and inst/extdata/
+
 
 ## This is a new submission.
