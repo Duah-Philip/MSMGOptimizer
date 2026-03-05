@@ -1,8 +1,11 @@
-
 #' Launch the MSMG SimaPro CSV Optimizer
 #'
 #' @description Starts the MSMG SimaPro CSV Optimizer Shiny application.
 #' @param ... Arguments passed to \code{shiny::runApp()}.
+#' @examples
+#' \dontrun{
+#'   ShinyMSMGOptimizer()
+#' }
 #' @export
 #' @importFrom shiny runApp
 ShinyMSMGOptimizer <- function(...) {

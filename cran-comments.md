@@ -6,7 +6,9 @@
 0 errors | 0 warnings | 1 note
 
 ## Notes
-* "unable to verify current time" — this is a network connectivity 
-  issue on the test machine and is unrelated to the package.
+* "Possibly misspelled words in DESCRIPTION" — these are all 
+  intentional technical terms: MSMG (project acronym), SimaPro 
+  (LCA software name), LCI (Life Cycle Inventory), CAS/CBET/GOALI 
+  (NSF program designations), and Decarbonization (valid English word).
 
 ## This is a new submission.

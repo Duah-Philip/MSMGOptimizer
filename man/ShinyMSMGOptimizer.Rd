@@ -12,3 +12,8 @@ ShinyMSMGOptimizer(...)
 \description{
 Starts the MSMG SimaPro CSV Optimizer Shiny application.
 }
+\examples{
+\dontrun{
+  ShinyMSMGOptimizer()
+}
+}
