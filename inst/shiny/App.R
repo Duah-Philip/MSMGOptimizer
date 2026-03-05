@@ -468,9 +468,10 @@ body {
   font-size: 13px;
   flex-shrink: 0;
 }
-.icon-green { background: var(--lime-light); color: var(--navy); }
-.icon-blue  { background: #daeaf8; color: #1a6b9e; }
-.icon-amber { background: var(--gold-light); color: var(--gold); }
+.icon-green  { background: var(--lime-light); color: var(--navy); }
+.icon-blue   { background: #daeaf8; color: #1a6b9e; }
+.icon-amber  { background: var(--gold-light); color: var(--gold); }
+.icon-purple { background: #ede8f8; color: #6a3a9e; }
 .sci-card-header h4 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
@@ -565,11 +566,58 @@ input[type='file'] { display: none !important; }
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
+  text-decoration: none !important;
 }
 .btn-download:hover {
   background: var(--lime-light) !important;
   border-color: var(--lime-bright) !important;
   transform: translateY(-1px) !important;
+  color: var(--navy) !important;
+}
+
+/* ── Resource file cards ── */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.resource-file-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.resource-file-card:hover {
+  border-color: var(--lime);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.resource-file-card .rfc-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.rfc-icon-word  { background: #dceeff; color: #1a5ea8; }
+.rfc-icon-excel { background: #d6f5e3; color: #1a7a40; }
+.resource-file-card .rfc-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.resource-file-card .rfc-desc {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  flex: 1;
 }
 
 /* ── Button row ── */
@@ -797,6 +845,7 @@ table.dataTable tbody td {
   .action-row { flex-direction: column; align-items: stretch; }
   .page-hero { padding: 22px 18px; }
   .content { padding: 16px !important; }
+  .resource-grid { grid-template-columns: 1fr; }
 }
 "
 
@@ -818,7 +867,6 @@ ui <- dashboardPage(
     width = 280,
     tags$div(
       class = "logo-block",
-
       tags$img(
         src = "Final_MSMG_hex.png",
         alt  = "MSMG Logo",
@@ -830,6 +878,7 @@ ui <- dashboardPage(
     sidebarMenu(
       useWaiter(),
       menuItem("Converter",    tabName = "home",         icon = icon("sliders-h")),
+      menuItem("Resources",    tabName = "resources",    icon = icon("download")),
       menuItem("About",        tabName = "about",        icon = icon("info-circle")),
       menuItem("Instructions", tabName = "instructions", icon = icon("book-open"))
     ),
@@ -855,14 +904,12 @@ ui <- dashboardPage(
       # ── HOME / CONVERTER TAB ──────────────────────────────────────────────
       tabItem(tabName = "home",
 
-              # Hero banner
               tags$div(class = "page-hero",
                        tags$div(class = "hero-badge", tags$i(class="fa fa-leaf", style="margin-right:5px;"), "Life Cycle Assessment"),
                        tags$h2("SimaPro CSV Converter"),
                        tags$p("Transform structured Excel-based LCI data into fully compatible SimaPro CSV format in one click.")
               ),
 
-              # Stat cards (dynamic)
               tags$div(class = "stat-cards",
                        tags$div(class = "stat-card",
                                 tags$div(class = "stat-icon", tags$i(class="fa fa-table")),
@@ -881,7 +928,6 @@ ui <- dashboardPage(
                        )
               ),
 
-              # Upload & Convert card
               tags$div(class = "sci-card",
                        tags$div(class = "sci-card-header",
                                 tags$div(class = "card-icon icon-green", tags$i(class = "fa fa-upload")),
@@ -909,7 +955,6 @@ ui <- dashboardPage(
                        )
               ),
 
-              # Status log card
               tags$div(class = "sci-card",
                        tags$div(class = "sci-card-header",
                                 tags$div(class = "card-icon icon-blue", tags$i(class = "fa fa-terminal")),
@@ -920,7 +965,6 @@ ui <- dashboardPage(
                        )
               ),
 
-              # Preview card
               tags$div(class = "sci-card",
                        tags$div(class = "sci-card-header",
                                 tags$div(class = "card-icon icon-amber", tags$i(class = "fa fa-eye")),
@@ -932,7 +976,129 @@ ui <- dashboardPage(
                        )
               ),
 
-              # Footer
+              tags$div(class = "app-footer",
+                       "Developed by ", tags$a("Philip Duah", href="mailto:dpbxc@mst.edu"),
+                       "  ·  Missouri University of Science & Technology",
+                       "  ·  NSF Award No. 2219086"
+              )
+      ),
+
+      # ── RESOURCES TAB ────────────────────────────────────────────────────
+      tabItem(tabName = "resources",
+
+              tags$div(class = "page-hero",
+                       tags$div(class = "hero-badge",
+                                tags$i(class="fa fa-download", style="margin-right:5px;"),
+                                "Downloads"),
+                       tags$h2("Tutorial & Setup Files"),
+                       tags$p("Download the step-by-step tutorial and example Excel setup files to get started with the MSMG SimaPro CSV Optimizer.")
+              ),
+
+              # Tutorial card
+              tags$div(class = "sci-card",
+                       tags$div(class = "sci-card-header",
+                                tags$div(class = "card-icon icon-blue", tags$i(class="fa fa-book")),
+                                tags$h4("Tutorial Document")
+                       ),
+                       tags$div(class = "sci-card-body",
+                                tags$div(class = "info-alert",
+                                         tags$i(class = "fa fa-info-circle"),
+                                         tags$span("The tutorial walks you through how to prepare your Excel LCI data,
+                                         use the converter, and import the resulting CSV files into SimaPro.")
+                                ),
+                                tags$div(class = "resource-grid",
+                                         tags$div(class = "resource-file-card",
+                                                  tags$div(class = "rfc-icon rfc-icon-word",
+                                                           tags$i(class = "fa fa-file-word-o")),
+                                                  tags$div(class = "rfc-title", "Tutorial"),
+                                                  tags$div(class = "rfc-desc",
+                                                           "Complete step-by-step guide covering data preparation,
+                                                           conversion workflow, and SimaPro import settings."),
+                                                  tags$a(
+                                                    href     = "Tutorial.docx",
+                                                    download = "Tutorial.docx",
+                                                    class    = "btn-download",
+                                                    style    = "margin-top: 4px;",
+                                                    tags$i(class="fa fa-download", style="margin-right:6px;"),
+                                                    "Download Tutorial"
+                                                  )
+                                         )
+                                )
+                       )
+              ),
+
+              # Setup files card
+              tags$div(class = "sci-card",
+                       tags$div(class = "sci-card-header",
+                                tags$div(class = "card-icon icon-green", tags$i(class="fa fa-file-excel-o")),
+                                tags$h4("Example Setup Files")
+                       ),
+                       tags$div(class = "sci-card-body",
+                                tags$div(class = "info-alert",
+                                         tags$i(class = "fa fa-info-circle"),
+                                         tags$span("Use these Excel templates to structure your LCI data correctly
+                                         before uploading to the converter. Each file demonstrates a different
+                                         data organisation approach.")
+                                ),
+                                tags$div(class = "resource-grid",
+
+                                         # Setup File
+                                         tags$div(class = "resource-file-card",
+                                                  tags$div(class = "rfc-icon rfc-icon-excel",
+                                                           tags$i(class = "fa fa-file-excel-o")),
+                                                  tags$div(class = "rfc-title", "Setup File"),
+                                                  tags$div(class = "rfc-desc",
+                                                           "Standard single-product LCI template.
+                                                           Ideal for straightforward processes with one output."),
+                                                  tags$a(
+                                                    href     = "Setup_File.xlsx",
+                                                    download = "Setup_File.xlsx",
+                                                    class    = "btn-download",
+                                                    style    = "margin-top: 4px;",
+                                                    tags$i(class="fa fa-download", style="margin-right:6px;"),
+                                                    "Download"
+                                                  )
+                                         ),
+
+                                         # Multiproduct Setup File
+                                         tags$div(class = "resource-file-card",
+                                                  tags$div(class = "rfc-icon rfc-icon-excel",
+                                                           tags$i(class = "fa fa-file-excel-o")),
+                                                  tags$div(class = "rfc-title", "Multiproduct Setup File"),
+                                                  tags$div(class = "rfc-desc",
+                                                           "Template for processes with multiple co-products
+                                                           or outputs in a single worksheet."),
+                                                  tags$a(
+                                                    href     = "Multiproduct_Setup_File.xlsx",
+                                                    download = "Multiproduct_Setup_File.xlsx",
+                                                    class    = "btn-download",
+                                                    style    = "margin-top: 4px;",
+                                                    tags$i(class="fa fa-download", style="margin-right:6px;"),
+                                                    "Download"
+                                                  )
+                                         ),
+
+                                         # Sheet by Sheet Setup File
+                                         tags$div(class = "resource-file-card",
+                                                  tags$div(class = "rfc-icon rfc-icon-excel",
+                                                           tags$i(class = "fa fa-file-excel-o")),
+                                                  tags$div(class = "rfc-title", "Sheet-by-Sheet Setup File"),
+                                                  tags$div(class = "rfc-desc",
+                                                           "Template where each worksheet represents a separate
+                                                           LCI process — one sheet converted to one CSV."),
+                                                  tags$a(
+                                                    href     = "Sheet_by_Sheet_Setup_File.xlsx",
+                                                    download = "Sheet_by_Sheet_Setup_File.xlsx",
+                                                    class    = "btn-download",
+                                                    style    = "margin-top: 4px;",
+                                                    tags$i(class="fa fa-download", style="margin-right:6px;"),
+                                                    "Download"
+                                                  )
+                                         )
+                                )
+                       )
+              ),
+
               tags$div(class = "app-footer",
                        "Developed by ", tags$a("Philip Duah", href="mailto:dpbxc@mst.edu"),
                        "  ·  Missouri University of Science & Technology",
@@ -1099,7 +1265,6 @@ server <- function(input, output, session) {
       if(length(sheet_names) > 0)
         updateSelectInput(session, "sheetSelect", selected = sheet_names[1])
       values$processing_log <- paste("Detected", length(sheet_names), "sheet(s) in the uploaded file.")
-      # Update stat card
       session$sendCustomMessage("updateStat", list(id = "stat-sheets", val = length(sheet_names)))
     }, error = function(e) {
       values$processing_log <- paste("Error reading Excel file:", e$message)
