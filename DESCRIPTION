@@ -9,16 +9,17 @@ Authors@R: c(
       role = c("aut", "cre")
     )
   )
-Description: MSMG SimaPro CSV Optimizer transforms raw life cycle inventory
-    (LCI) data into a fully compatible CSV format that can be imported
-    seamlessly into SimaPro for life cycle assessment workflows.
-    The software was developed as part of the project titled
-    'ECO‑CBET: GOALI: CAS‑Climate: Expediting Decarbonization of the Cement
-    Industry through Integration of CO₂ Capture and Conversion'
-    (Project No. 2219086).
-License: Apache License
+Description: Transforms raw life cycle inventory (LCI) data into
+    a fully compatible CSV format that can be imported seamlessly
+    into SimaPro for life cycle assessment workflows. Developed as
+    part of the project 'ECO-CBET: GOALI: CAS-Climate: Expediting
+    Decarbonization of the Cement Industry through Integration of
+    CO2 Capture and Conversion' (NSF Project No. 2219086).
+URL: https://github.com/Duah-Philip/MSMGOptimizer
+BugReports: https://github.com/Duah-Philip/MSMGOptimizer/issues
+Depends: R (>= 4.0)
+License: Apache License (>= 2)
 Encoding: UTF-8
-LazyData: true
 Imports:
     shiny (>= 1.10.0),
     shinydashboard  (>= 0.7.3),
@@ -29,5 +30,9 @@ Imports:
     htmltools (>= 0.5.8.1),
     zip (>= 2.3.0)
 RoxygenNote: 7.3.2
-URL: https://github.com/Duah-Philip/MSMGOptimizer
-BugReports: https://github.com/Duah-Philip/MSMGOptimizer/issues
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
