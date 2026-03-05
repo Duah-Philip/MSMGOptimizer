@@ -1,6 +1,6 @@
 # app.R - MSMG SimaPro CSV Optimizer
-# Redesigned UI — Publication-Quality Scientific Dashboard
-# All server logic and to_spcsv() function preserved exactly
+
+
 
 library(shiny)
 library(shinydashboard)
@@ -15,7 +15,7 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 options(expressions = 5e5)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# CONVERSION FUNCTION (unchanged)
+# CONVERSION FUNCTION
 # ─────────────────────────────────────────────────────────────────────────────
 to_spcsv <- function(dataframe, file_path) {
   debug_info <- list()
@@ -204,7 +204,7 @@ to_spcsv <- function(dataframe, file_path) {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
-# CUSTOM CSS — Publication-Quality Scientific Theme
+# CUSTOM CSS — Theme
 # ─────────────────────────────────────────────────────────────────────────────
 custom_css <- "
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
@@ -819,11 +819,11 @@ ui <- dashboardPage(
     width = 280,
     tags$div(
       class = "logo-block",
-      # ── Logo: replace src with your actual logo path once in inst/shiny/www/ ──
+
       tags$img(
         src = "Final_MSMG_hex.png",
         alt  = "MSMG Logo",
-        onerror = "this.style.display='none'"   # hides gracefully if file missing
+        onerror = "this.style.display='none'"
       ),
       tags$div(class = "app-title",  "MSMG SimaPro CSV Optimizer"),
       tags$div(class = "app-subtitle", "v 0.1.0  ·  LCA Tools")
@@ -1081,7 +1081,7 @@ ui <- dashboardPage(
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
-# SERVER (unchanged)
+# SERVER
 # ─────────────────────────────────────────────────────────────────────────────
 server <- function(input, output, session) {
   values <- reactiveValues(
