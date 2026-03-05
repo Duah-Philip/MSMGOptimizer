@@ -6,7 +6,6 @@ output: github_document
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Duah-Philip/MSMGOptimizer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Duah-Philip/MSMGOptimizer/actions)
-[![CRAN status](https://www.r-pkg.org/badges/version/MSMGOptimizer)](https://CRAN.R-project.org/package=MSMGOptimizer)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 <!-- badges: end -->
 
