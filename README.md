@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1173218996.svg)](https://doi.org/10.5281/zenodo.18884654)
 
 # MSMGOptimizer <img src="inst/shiny/www/Final_MSMG_hex.png" align="right" width="140"/>
 
