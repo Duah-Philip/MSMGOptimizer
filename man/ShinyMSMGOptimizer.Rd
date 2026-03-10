@@ -2,18 +2,32 @@
 % Please edit documentation in R/run_app.R
 \name{ShinyMSMGOptimizer}
 \alias{ShinyMSMGOptimizer}
-\title{Launch the MSMG SimaPro CSV Optimizer}
+\title{Launch the MSMG 'SimaPro' CSV Optimizer 'Shiny' Application}
 \usage{
-ShinyMSMGOptimizer(...)
+ShinyMSMGOptimizer()
 }
-\arguments{
-\item{...}{Arguments passed to \code{shiny::runApp()}.}
+\value{
+No return value. This function is called for its side effect
+  of launching an interactive 'Shiny' application in the user's
+  default web browser or 'RStudio' viewer pane.
 }
 \description{
-Starts the MSMG SimaPro CSV Optimizer Shiny application.
+Launches a 'Shiny' (web application framework for R) application that
+converts 'Excel'-based Life Cycle Inventory (LCI) data into
+'SimaPro' CSV (Comma-Separated Values) format compatible with the
+'SimaPro' Life Cycle Assessment (LCA) software. The app provides
+an interactive interface for uploading 'Excel' files, previewing
+worksheet contents, converting all sheets to individual CSV files,
+and downloading the results as a ZIP (compressed archive) file.
+Developed by the Mine Sustainability Modeling Group (MSMG) at
+Missouri University of Science and Technology.
 }
 \examples{
-\dontrun{
+if (interactive()) {
   ShinyMSMGOptimizer()
 }
+
+}
+\seealso{
+\code{\link{msmg_example}} for accessing bundled example files.
 }

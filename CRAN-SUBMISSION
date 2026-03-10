@@ -1,3 +1,15 @@
-Version: 0.1.0
-Date: 2026-03-05 08:32:19 UTC
-SHA: aafdfa016cf6bf31bb8186910a9948fdcc83f081
+## Resubmission
+Addressed all issues raised in the CRAN review:
+* Expanded all acronyms in DESCRIPTION and documentation
+* Added single quotes around software names throughout
+* Added \value tag to all exported functions
+* Replaced \dontrun{} with if(interactive()){}
+* Added executable code chunks to vignette
+* Added reference to Pizzol (2022) in DESCRIPTION
+
+## R CMD check results
+0 errors | 0 warnings | 1 note
+
+## Note
+* checking for future file timestamps: unable to verify current time
+  This is a local network/system issue unrelated to the package.

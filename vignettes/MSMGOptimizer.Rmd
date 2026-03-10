@@ -1,8 +1,8 @@
 ---
-title: "MSMGOptimizer"
+title: "Getting Started with MSMGOptimizer"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{MSMGOptimizer}
+  %\VignetteIndexEntry{Getting Started with MSMGOptimizer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,10 +10,106 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment  = "#>"
 )
 ```
 
 ```{r setup}
 library(MSMGOptimizer)
 ```
+
+## Overview
+
+The MSMGOptimizer package provides a 'Shiny' (web application framework
+for R) application for converting 'Excel'-based Life Cycle Inventory
+(LCI) data into 'SimaPro' CSV (Comma-Separated Values) format for use
+in Life Cycle Assessment (LCA) modeling.
+
+Developed by the Mine Sustainability Modeling Group (MSMG) at Missouri
+University of Science and Technology under NSF (National Science
+Foundation) Award No. 2219086.
+
+## Installation
+
+```{r installation, eval = FALSE}
+# Install from CRAN
+install.packages("MSMGOptimizer")
+
+# Or install the development version from GitHub
+remotes::install_github("Duah-Philip/MSMGOptimizer")
+```
+
+## Bundled Example Files
+
+The package ships with example 'Excel' setup files and a tutorial
+document in its `inst/extdata` directory. These serve as templates
+for structuring your own Life Cycle Inventory (LCI) data.
+
+```{r list-files}
+# List all bundled example files
+list.files(system.file("extdata", package = "MSMGOptimizer"))
+```
+
+You can retrieve the path to any individual file using `msmg_example()`:
+
+```{r example-path}
+# Get the full path to the standard setup file
+msmg_example("Setup_File.xlsx")
+
+# Confirm the tutorial document is present
+file.exists(msmg_example("Tutorial.docx"))
+```
+
+## Verifying the Installation
+
+```{r verify}
+# Confirm the Shiny app directory is correctly installed
+app_path <- system.file("shiny", package = "MSMGOptimizer")
+file.exists(app_path)
+```
+
+## Launching the Application
+
+The main function `ShinyMSMGOptimizer()` launches the interactive
+'Shiny' application. It is intended for use in an interactive R
+session only and cannot be run in automated scripts or during
+`R CMD check`.
+
+```{r launch, eval = FALSE}
+# Launch the optimizer (interactive session only)
+if (interactive()) {
+  ShinyMSMGOptimizer()
+}
+```
+
+Once launched, the application allows you to:
+
+- Upload an `.xlsx` or `.xls` file containing your LCI data
+- Preview each worksheet before conversion
+- Convert all sheets to individual 'SimaPro' CSV files
+- Download the results as a single ZIP archive
+
+## Excel File Format
+
+Your 'Excel' file must follow the MSMG (Mine Sustainability Modeling
+Group) layout. Each worksheet represents one LCI process. Use the
+bundled setup files as templates — see `msmg_example()` for access.
+
+Column A should contain the exchange type code for each row:
+
+| Code               | 'SimaPro' Section     |
+|--------------------|-----------------------|
+| *(blank)*          | Materials / Fuels     |
+| `Raw`              | Resources             |
+| `Air`              | Emissions to Air      |
+| `Water`            | Emissions to Water    |
+| `Soil`             | Emissions to Soil     |
+| `Waste`            | Final Waste Flows     |
+| `Social`           | Social Issues         |
+| `Economic`         | Economic Issues       |
+| `Wastetotreatment` | Waste to Treatment    |
+
+## Further Help
+
+For questions or bug reports, please open an issue on GitHub:
+<https://github.com/Duah-Philip/MSMGOptimizer/issues>

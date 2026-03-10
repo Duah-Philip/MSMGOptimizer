@@ -15,10 +15,11 @@ Inventory (LCI) data from Excel into a fully compatible CSV format for
 seamless import into [SimaPro](https://simapro.com/) — one of the
 world’s leading Life Cycle Assessment (LCA) software platforms.
 
-Developed as part of the NSF-funded project: \> *ECO-CBET: GOALI:
-CAS-Climate: Expediting Decarbonization of the \> Cement Industry
-through Integration of CO₂ Capture and Conversion* \> (NSF Project
-No. 2219086)
+Developed as part of the NSF-funded project:
+
+> *ECO-CBET: GOALI: CAS-Climate: Expediting Decarbonization of the
+> Cement Industry through Integration of CO2 Capture and Conversion*
+> (NSF Project No. 2219086)
 
 ------------------------------------------------------------------------
 
@@ -41,10 +42,10 @@ remotes::install_github("Duah-Philip/MSMGOptimizer")
 
 ``` r
 shiny::runGitHub(
-  repo   = "MSMGOptimizer",
+  repo     = "MSMGOptimizer",
   username = "Duah-Philip",
-  ref    = "master",
-  subdir = "inst/shiny"
+  ref      = "master",
+  subdir   = "inst/shiny"
 )
 ```
 
@@ -64,9 +65,9 @@ ShinyMSMGOptimizer()
 ## Features
 
 - 📂 Upload `.xlsx` or `.xls` Excel LCI files
-- ⚙️ Automatically converts all worksheets to SimaPro CSV format
+- ⚙ Automatically converts all worksheets to SimaPro CSV format
 - 📦 Downloads all converted files as a single ZIP archive
-- 👁️ Live sheet preview before conversion
+- 👁 Live sheet preview before conversion
 - 🔄 Supports all SimaPro exchange types:
   - Materials/Fuels, Resources, Emissions to Air/Water/Soil
   - Final Waste Flows, Social Issues, Economic Issues
@@ -116,8 +117,8 @@ Pizzol](https://github.com/massimopizzol/Simapro-CSV-converter).
 
 If you use MSMGOptimizer in your research, please cite:
 
-    Duah, P. (2024). MSMGOptimizer: MSMG SimaPro CSV Optimizer. 
-    R package version 0.1.0. 
+    Duah, P. & Awuah-Offei, K. (2024). MSMGOptimizer: MSMG SimaPro CSV Optimizer.
+    R package version 0.1.0.
     https://github.com/Duah-Philip/MSMGOptimizer
 
 ------------------------------------------------------------------------

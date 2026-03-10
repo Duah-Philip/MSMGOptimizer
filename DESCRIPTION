@@ -1,28 +1,36 @@
 Package: MSMGOptimizer
 Type: Package
-Title: MSMG SimaPro CSV Optimizer
+Title: Mine Sustainability Modeling Group (MSMG) 'SimaPro' CSV Optimizer
 Version: 0.1.0
 Authors@R: c(
     person(
       "Philip", "Duah",
       email = "dpbxc@mst.edu",
       role = c("aut", "cre")
+    ),
+    person(
+      "Kwame", "Awuah-Offei",
+      email = "kwamea@mst.edu",
+      role = "aut"
     )
   )
-Description: Transforms raw life cycle inventory (LCI) data into
-    a fully compatible CSV format that can be imported seamlessly
-    into SimaPro for life cycle assessment workflows. Developed as
-    part of the project 'ECO-CBET: GOALI: CAS-Climate: Expediting
-    Decarbonization of the Cement Industry through Integration of
-    CO2 Capture and Conversion' (NSF Project No. 2219086).
+Description: A 'Shiny' application for converting 'Excel'-based
+    Life Cycle Inventory (LCI) data into 'SimaPro' CSV
+    (Comma-Separated Values) format for use in Life Cycle
+    Assessment (LCA) modeling. Developed by the Mine Sustainability
+    Modeling Group (MSMG) at Missouri University of Science and
+    Technology under NSF (National Science Foundation) funding
+    (Award No. 2219086). See Pizzol (2022)
+    <https://github.com/massimopizzol/Simapro-CSV-converter>
+    for the original 'Python' implementation that inspired this tool.
 URL: https://github.com/Duah-Philip/MSMGOptimizer
 BugReports: https://github.com/Duah-Philip/MSMGOptimizer/issues
-Depends: R (>= 4.0)
+Depends: R (>= 4.0.0)
 License: Apache License (>= 2)
 Encoding: UTF-8
 Imports:
     shiny (>= 1.10.0),
-    shinydashboard  (>= 0.7.3),
+    shinydashboard (>= 0.7.3),
     readxl (>= 1.4.5),
     dplyr (>= 1.1.0),
     DT (>= 0.33),
@@ -30,7 +38,7 @@ Imports:
     htmltools (>= 0.5.8.1),
     zip (>= 2.3.0)
 RoxygenNote: 7.3.2
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
     spelling,
