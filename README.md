@@ -116,7 +116,7 @@ Pizzol](https://github.com/massimopizzol/Simapro-CSV-converter).
 
 If you use MSMGOptimizer in your research, please cite:
 
-    Duah, P. & Awuah-Offei, K. (2024). MSMGOptimizer: MSMG SimaPro CSV Optimizer.
+    Duah, P. & Awuah-Offei, K. (2025). MSMGOptimizer: MSMG SimaPro CSV Optimizer.
     R package version 0.1.0.
     https://github.com/Duah-Philip/MSMGOptimizer
 
