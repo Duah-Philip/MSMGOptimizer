@@ -1,19 +1,18 @@
-## Test environments
-* Local: Windows 11, R 4.3.1
-* Win-builder: R-devel (win-builder.r-project.org)
+## Resubmission
+Addressed all issues raised in the CRAN review:
+* Expanded all acronyms in DESCRIPTION and documentation (MSMG, LCI, LCA, CSV, NSF)
+* Added single quotes around all software names ('Shiny', 'SimaPro', 'Excel', 'Python', 'RStudio')
+* Added \value tag to all exported functions
+* Replaced \dontrun{} with if(interactive()){}
+* Added executable code chunks to vignette
+* Added reference to Pizzol (2022) in DESCRIPTION
+* Fixed non-portable file names (spaces replaced with underscores)
 
-## R CMD check results
+## Win-builder results (R-devel)
 0 errors | 0 warnings | 1 note
 
-## Notes
-* "Possibly misspelled words in DESCRIPTION" — these are all 
-  intentional technical terms: MSMG (project acronym), SimaPro 
-  (LCA software name), LCI (Life Cycle Inventory), CAS/CBET/GOALI 
-  (NSF program designations), and Decarbonization (valid English word).
-  
-  ## Resubmission
-* Added Resources tab with downloadable tutorial and setup files
-* Added example files to inst/shiny/www/ and inst/extdata/
-
-
-## This is a new submission.
+## Note
+* New submission
+* Possibly misspelled words: LCA, LCI, MSMG, Pizzol — these are
+  intentional technical terms and proper nouns, all expanded in
+  the Description field
